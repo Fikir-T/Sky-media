@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'firstpage/style.css' %}">
+    <script defer src="{% static 'firstpage/script.js' %}"></script>
+    <title>Sky Media - Creative Services</title>
+</head>
+<body>
+    {% block header%}
+    <header>
+        <div class="logo">
+            <a href="#home" class="logo">Sky Media <span>Solutions</span></a>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <nav>
+            <ul class="nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="top-btn">
+            <a href="{% url 'order' %}" class="nav-btn">order</a>
+        </div>
+    </header>
+    
+    
+    <section id="home" class="hero">
+        <div class="home-content">
+            <h3>Creative</h3>
+            <h1>Visual & Digital</h1>
+            <h3><span class="multiple-text">Services</span></h3>
+            <p>
+                Transform your ideas into reality with our creative digital services. 
+                From graphics to videos and social media, we’ve got you covered!
+            </p>
+            <a href="{% url 'order' %}" class="btn">order</a>
+        </div>
+        <div class="home-image">
+            <img src="{% static 'firstpage/7.jpg' %}" alt="Home Image">
+        </div>
+    </section>
+
+    <section id="Services" class="Services">
+        <h2 class="heading">Our <span>Services</span></h2>
+        <div class="service-boxes">
+            <div class="service">
+                <img src="{% static 'firstpage/5.jpg' %}" alt="Video Editing">
+                <p>🎬 Video Editing</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'firstpage/1.jpg' %}" alt="Graphic Design">
+                <p>🎨 Graphic Design</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'firstpage/8.jpg' %}" alt="Thumbnail Creation">
+                <p>📸 Thumbnail Creation</p>
+            </div>
+        </div>
+        <div class="service-boxes">
+            <div class="service">
+                <img src="{% static 'firstpage/3.jpg' %}" alt="Social Media Management">
+                <p>📢 Social Media Management</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'firstpage/6.jpg' %}" alt="Web Development">
+                <p>🖥️ Web Development And Maintenance</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'firstpage/2.jpg' %}" alt="Digital Marketing">
+                <p>📈 Digital Marketing</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 class="heading">Our <span>Portfolio</span></h2>
+        <div class="portfolio-items">
+            <div class="portfolio-item">Project 1</div>
+            <div class="portfolio-item">Project 2</div>
+            <div class="portfolio-item">Project 3</div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="{% static 'firstpage/4.jpg' %}" alt="About Us">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About Us</h2>
+            <p>
+                "At Sky Media Solutions, we bring creativity and innovation to life through professional video editing, graphic design, and digital marketing solutions. Our team is dedicated to crafting visually stunning content that enhances your brand’s identity.
+            </p>
+            <p>
+                From eye-catching thumbnails to engaging social media strategies, we help businesses and creators stand out.
+            </p>
+            <p>
+                With expertise in web development, we also build dynamic, user-friendly websites tailored to your needs. Let’s collaborate to transform your ideas into powerful visual stories!"
+            </p>
+            <a href="#" class="btn">Book a Quote</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="heading">Contact Us</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="Phone Number">
+                    <input type="text" placeholder="Subject">
+                </div>
+            </div>
+            <div class="input-group-2">
+                <textarea cols="30" rows="10" placeholder="Your Message"></textarea>
+                <input type="submit" value="send Message" class="btn">
+            </div>
+        </form>
+    </section>
+   
+
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class='bx bxl-tiktok'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+        </div>
+        <p class="copyright">
+            &copy; 2025 Sky Media Solutions | All rights reserved.
+        </p>
+    </footer>
+    {% endblock %}
+</body>
+</html>

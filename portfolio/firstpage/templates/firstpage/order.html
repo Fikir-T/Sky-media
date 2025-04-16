@@ -1,0 +1,39 @@
+{% extends "firstpage/index.html" %}
+{% load static %}
+{% block header %}
+<!-- <h1 class="heading">Ho<span>me</span></h1> -->
+ {%block title%} 
+ 
+ 
+ <title>Order</title>
+ 
+ {%endblock%}
+<h2 class="heading">Create <span>Order</span></h2>
+<section id="contact" class="contact">
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <div class="input-box">
+                <label for="customer_name">Customer Name:</label>
+                <input type="text" name="customer_name" required><br>
+                <label for="customer_email">Email:</label>
+                <input type="email" name="customer_email" required><br>
+                <label for="description">Description:</label>
+                <textarea name="description" required></textarea><br>
+            </div>
+            <div class="select-box">
+                <label for="ordertype">Order Type:</label>
+                <select name="ordertype" required>
+                    <option value="Video">Video</option>
+                    <option value="Graphics">Graphics</option>
+                    <option value="Web">Web</option>
+                    <option value="Thumbnail">Thumbnail</option>
+                    <option value="digital marketing">Digital Marketing</option>
+                    <option value="Social media management">Social Media Management</option>
+                </select><br>
+            </div>
+            <button type="submit" class="btn">Submit Order</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
