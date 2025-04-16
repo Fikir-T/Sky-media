@@ -43,4 +43,5 @@ def orderform(request):
     return render(request, 'firstpage/order.html')
 
 
-
+def videos(request):
+    return render(request, 'firstpage/video_editing.html')
