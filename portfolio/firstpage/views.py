@@ -45,3 +45,44 @@ def orderform(request):
 
 def videos(request):
     return render(request, 'firstpage/video_editing.html')
+
+# def ethiocal(request):
+#     if request.method == 'POST':
+#         weekdays = ['ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ', 'እሑድ']
+
+#         year = int(request.POST.get('year'))
+#         month = int(request.POST.get('month'))
+#         day = int(request.POST.get('day'))
+
+#         # Calculate the Ethiopian Julian Day Number
+#         julian = 1723856 + 365 * year + (year // 4) + 30 * month + day - 31
+
+#         # Get weekday from Julian number (0 = Monday)
+#         weekday_index = julian % 7
+#         weekday_name = weekdays[weekday_index]
+
+#         context = {
+#             'year': year,
+#             'month': month,
+#             'day': day,
+#             'julian': julian,
+#             'weekday': weekday_name
+#         }
+
+#         return render(request, 'firstpage/ethiocal.html', context)
+
+#     # If not POST request, just render empty form
+#     return render(request, 'firstpage/ethiocal.html')
+
+
+def ethiocal(request):
+    if request.method == 'POST':
+        weekdays = ['ሰኞ', 'ማክሰኞ', 'ረቡዕ', 'ሐሙስ', 'ዓርብ', 'ቅዳሜ', 'እሑድ']
+        year = int(request.POST.get('year'))
+        month = int(request.POST.get('month'))
+        day = int(request.POST.get('day'))
+        julian =  1723856 + 365 * year + (year // 4) + 30 * month + day - 31
+        weekday = julian % 7
+        weekday_name =  weekdays[weekday]
+        return render(request, 'firstpage/ethiocal.html', {'year': year, 'month': month, 'day': day, 'julian': julian, 'weekday': weekday_name})
+    return render(request, 'firstpage/ethiocal.html')

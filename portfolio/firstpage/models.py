@@ -30,3 +30,9 @@ class contact_us(models.Model):
     phone_number = models.IntegerField(name='phone_number')
     subject = models.CharField(name='subject', max_length=100)
     message = models.TextField(name='message')
+
+
+
+# class video(models.Model):
+#     title = models.CharField(name='title', max_length= 255)
+#     videos = models.
